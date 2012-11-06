@@ -1,0 +1,24 @@
+<div data-hook="admin_author_form_fields">
+  <%= f.field_container :name do %>
+    <%= f.label :name, raw(t(:name) + content_tag(:span, ' *', :class => 'required')) %>
+    <%= f.text_field :name, :class => 'fullwidth title' %>
+    <%= f.error_message_on :name %>
+  <% end %>
+
+  <%= f.field_container :permalink do %>
+    <%= f.label :permalink, raw(t(:permalink) + content_tag(:span, ' *',  :class => "required")) %>
+    <%= f.text_field :permalink, :class => 'fullwidth title' %>
+    <%= f.error_message_on :permalink %>
+  <% end %>
+
+  <%= f.field_container :biography do %>
+    <%= f.label :biography, t(:biography) %><br />
+    <%= f.text_area :biography, {:biography => 60, :rows => 4, :class => 'fullwidth'} %>
+  <% end %>
+
+  <%= f.field_container :photo do %>
+    <%= f.label :photo, t(:photo) %><br />
+    <%= f.file_field :photo, {:photo => 60, :rows => 4, :class => 'fullwidth'} %>
+  <% end %>
+
+</div>
