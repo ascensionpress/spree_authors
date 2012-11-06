@@ -5,6 +5,10 @@ class CreateSpreeAuthors < ActiveRecord::Migration
       t.string :name
       t.string :permalink
 
+      t.string  :photo_file_name
+      t.string  :photo_content_type
+      t.integer :photo_file_size
+
       t.timestamps
     end
   end

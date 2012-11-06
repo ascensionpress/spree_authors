@@ -1,20 +1,6 @@
-<p id="notice"><%= notice %></p>
+<%= content_tag(:h1, @author.name) %>
+<%= @author.biography %>
 
-<p>
-  <b>Biography:</b>
-  <%= @spree_author.biography %>
-</p>
-
-<p>
-  <b>Name:</b>
-  <%= @spree_author.name %>
-</p>
-
-<p>
-  <b>Permalink:</b>
-  <%= @spree_author.permalink %>
-</p>
-
-
-<%= link_to 'Edit', edit_spree_author_path(@spree_author) %> |
-<%= link_to 'Back', spree_authors_path %>
+<% Spree::Product.limit(5).search(:author_cont => @author.name.strip).result.each do |product| %>
+	<%= product.name %>
+<% end %>
