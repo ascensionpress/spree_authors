@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Biography:</b>
+  <%= @spree_author.biography %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @spree_author.name %>
+</p>
+
+<p>
+  <b>Permalink:</b>
+  <%= @spree_author.permalink %>
+</p>
+
+
+<%= link_to 'Edit', edit_spree_author_path(@spree_author) %> |
+<%= link_to 'Back', spree_authors_path %>

@@ -1,0 +1,27 @@
+<h1>Listing spree_authors</h1>
+
+<table>
+  <tr>
+    <th>Biography</th>
+    <th>Name</th>
+    <th>Permalink</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @spree_authors.each do |spree_author| %>
+  <tr>
+    <td><%= spree_author.biography %></td>
+    <td><%= spree_author.name %></td>
+    <td><%= spree_author.permalink %></td>
+    <td><%= link_to 'Show', spree_author %></td>
+    <td><%= link_to 'Edit', edit_spree_author_path(spree_author) %></td>
+    <td><%= link_to 'Destroy', spree_author, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Author', new_spree_author_path %>
