@@ -1,8 +1,9 @@
 module Spree
   # UPGRADE_CHECK
   # class AuthorsController < Spree::StoreController
+  
   class AuthorsController < BaseController
-    before_filter :load_product, :only => :show
+    before_filter :load_author, :only => :show
     # rescue_from ActiveRecord::RecordNotFound, :with => :render_404
 
     def index
@@ -14,7 +15,7 @@ module Spree
     end
 
     private
-      def load_product
+      def load_author
         @author = Author.find_by_permalink!(params[:id])
       end
   end

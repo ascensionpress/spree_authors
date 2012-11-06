@@ -1,6 +1,23 @@
-<%= content_tag(:h1, @author.name) %>
-<%= @author.biography %>
-
-<% Spree::Product.limit(5).search(:author_cont => @author.name.strip).result.each do |product| %>
-	<%= product.name %>
-<% end %>
+<div class="row">
+	<div class="alpha columns six">
+		<%= image_tag @author.photo.url %>
+	</div>
+	<div class="omega columns ten readable-text">
+		<%= content_tag(:h1, @author.name) %>
+		<%== auto_link(RDiscount.new(@author.biography || "", :smart).to_html, :html => { :encode => 'javascript' }) %>
+	</div>
+</div>
+<div class="row">
+	<div class="alpha columns seven">
+		<%= render 'videos', :author => @author %>
+	</div>
+	<div class="omega columns nine">
+		<h2>Products</h2>
+		<% Spree::Product.limit(3).search(:author_cont => @author.name.strip).result.each do |product| %>
+			<div class="columns three">
+				<%= product.name %>
+				<%= link_to mini_image(product) + " " + product.name, product_path(product) %>
+			</div>
+		<% end %>
+	</div>
+</div>
