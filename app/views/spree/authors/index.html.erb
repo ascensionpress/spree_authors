@@ -1,27 +1,12 @@
-<h1>Listing spree_authors</h1>
-
-<table>
-  <tr>
-    <th>Biography</th>
-    <th>Name</th>
-    <th>Permalink</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @spree_authors.each do |spree_author| %>
-  <tr>
-    <td><%= spree_author.biography %></td>
-    <td><%= spree_author.name %></td>
-    <td><%= spree_author.permalink %></td>
-    <td><%= link_to 'Show', spree_author %></td>
-    <td><%= link_to 'Edit', edit_spree_author_path(spree_author) %></td>
-    <td><%= link_to 'Destroy', spree_author, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<% @body_class = 'serif-headers' %>
+<% cache ["author-index", Spree::Author.maximum('updated_at').to_i] do %>
+<div class="row" id="author-listing">
+  <div class="container"><h1>Authors</h1></div>
+  <% @authors.each do |author| %>
+    <div class="column">
+      <%= content_tag(:h3, author.name) %>
+      <%= link_to(image_tag(author.photo.url(:small)), author) %>
+    </div>  
+  <% end %>
+</div>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Author', new_spree_author_path %>

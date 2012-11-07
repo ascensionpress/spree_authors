@@ -1,0 +1,12 @@
+<% author_products = Spree::Product.limit(3).search(:author_cont => author.name.strip).result %>
+<% if author_products.present? %>
+<h2>Products</h2>
+<div class="row">
+<% author_products.each do |product| %>
+	<div class="column">
+		<%= link_to mini_image(product) + " " + product.name, product %>
+	</div>
+<% end %>
+</div>
+<%= content_tag(:p, link_to(t(:view_all_author_products, author: author.name), '/products?author_list_facet=' + u(author.name), class: 'btn')) %>
+<% end %>

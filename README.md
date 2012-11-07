@@ -1,9 +1,9 @@
-SpreeAuthors
+Spree Authors
 ============
 
-* Uses markdown for the biography (via `RDiscount`)
-* Relys on spree_videos
-* 
+* Uses markdown via `RDiscount` for the biography
+* Uses `spree_videos` for video display
+* "View All Author Products" link assumes use of `spree_sunspot_search`. Can easily be modified to work with other search extensions.
 
 
 Example

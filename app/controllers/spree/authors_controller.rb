@@ -10,9 +10,7 @@ module Spree
       @authors = Spree::Author.all
     end
 
-    def show
-
-    end
+    def show; end
 
     private
       def load_author

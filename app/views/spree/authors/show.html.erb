@@ -1,23 +1,23 @@
+<% @body_id = 'author-page' %>
+<% @body_class = 'serif-headers' %>
+<% cache @author do %>
 <div class="row">
-	<div class="alpha columns six">
+	<div class="alpha columns six author-photo">
 		<%= image_tag @author.photo.url %>
 	</div>
 	<div class="omega columns ten readable-text">
+		<%= display_bookmarks(@author) if gem_available? 'spree_social_bookmarks' %>
 		<%= content_tag(:h1, @author.name) %>
 		<%== auto_link(RDiscount.new(@author.biography || "", :smart).to_html, :html => { :encode => 'javascript' }) %>
 	</div>
 </div>
 <div class="row">
-	<div class="alpha columns seven">
+	<div class="alpha columns six">
+		<%= content_tag(:h2, t(:author_video_samples)) %>
 		<%= render 'videos', :author => @author %>
 	</div>
-	<div class="omega columns nine">
-		<h2>Products</h2>
-		<% Spree::Product.limit(3).search(:author_cont => @author.name.strip).result.each do |product| %>
-			<div class="columns three">
-				<%= product.name %>
-				<%= link_to mini_image(product) + " " + product.name, product_path(product) %>
-			</div>
-		<% end %>
+	<div class="omega columns ten">
+		<%= render 'products', :author => @author %>
 	</div>
 </div>
+<% end %>
