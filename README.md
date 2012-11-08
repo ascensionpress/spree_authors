@@ -4,6 +4,7 @@ Spree Authors
 * Uses markdown via `RDiscount` for the biography
 * Uses `spree_videos` for video display
 * "View All Author Products" link assumes use of `spree_sunspot_search`. Can easily be modified to work with other search extensions.
+* Supports fragment caching
 
 
 Example

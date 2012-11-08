@@ -12,11 +12,11 @@
 	</div>
 </div>
 <div class="row">
-	<div class="alpha columns six">
+	<div class="alpha columns six" data-hook='author-videos'>
 		<%= content_tag(:h2, t(:author_video_samples)) %>
 		<%= render 'videos', :author => @author %>
 	</div>
-	<div class="omega columns ten">
+	<div class="omega columns ten" data-hook='author-products'>
 		<%= render 'products', :author => @author %>
 	</div>
 </div>

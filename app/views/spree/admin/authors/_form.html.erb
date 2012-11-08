@@ -21,4 +21,13 @@
     <%= f.file_field :photo, {:photo => 60, :rows => 4, :class => 'fullwidth'} %>
   <% end %>
 
+  <%# TODO this only allows you to add one video at a time %>
+  <%# should be AJAX based and shouldn't use the videos.build hack %>
+  
+  <h2>Videos</h2>
+  <% @author.videos.build %>
+
+  <%= f.fields_for :videos do |video| %>
+    <%= render 'spree/admin/videos/form', :f => video %>
+  <% end %>
 </div>

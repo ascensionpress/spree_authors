@@ -1,7 +1,9 @@
 class Spree::Author < ActiveRecord::Base
-  attr_accessible :biography, :name, :permalink, :photo
+  attr_accessible :biography, :name, :permalink, :photo, :videos_attributes
 
   has_many :videos, :order => 'position ASC', :as => :watchable
+  accepts_nested_attributes_for :videos, :allow_destroy => true
+
 
   make_permalink :order => :name
 

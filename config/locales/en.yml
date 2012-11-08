@@ -3,3 +3,9 @@
 
 en:
   view_all_author_products: View All %{author} Products
+
+  helpers:
+    label:
+      author:
+          videos:
+            youtube_ref: YouTube Link or Reference
