@@ -2,22 +2,32 @@
 <% @body_class = 'serif-headers' %>
 <% cache @author do %>
 <div class="row">
-	<div class="alpha columns six author-photo">
+	<div class="alpha columns four author-photo">
 		<%= image_tag @author.photo.url %>
 	</div>
-	<div class="omega columns ten readable-text">
-		<%= display_bookmarks(@author) if gem_available? 'spree_social_bookmarks' %>
-		<%= content_tag(:h1, @author.name) %>
-		<%== auto_link(RDiscount.new(@author.biography || "", :smart).to_html, :html => { :encode => 'javascript' }) %>
+	<div class="omega columns twelve readable-text">
+		<div>
+			<%= display_bookmarks(@author) if gem_available? 'spree_social_bookmarks' %>
+			<%= content_tag(:h1, @author.name) %>
+		</div>
+		<div id="author-description">
+			<%== auto_link(RDiscount.new(@author.biography || "", :smart).to_html, :html => { :encode => 'javascript' }) %>
+		</div>
 	</div>
 </div>
+
 <div class="row">
-	<div class="alpha columns six" data-hook='author-videos'>
-		<%= content_tag(:h2, t(:author_video_samples)) %>
-		<%= render 'videos', :author => @author %>
+	<%= content_tag(:h2, t(:speaker_video_samples)) %>
+</div>
+<div class="row" id="author-videos" data-hook='author-videos'>
+	<% @author.videos.each do |video| %>
+	<div class="<%= cycle('alpha', 'omega') %> columns eight">
+		<%= render 'spree/products/video_player', :video => video, :html_options => { :width => 400 } %>
 	</div>
-	<div class="omega columns ten" data-hook='author-products'>
-		<%= render 'products', :author => @author %>
-	</div>
+	<% end %>
+</div>
+
+<div class="row" id="author-products">
+	<%= render 'products', :author => @author %>
 </div>
 <% end %>

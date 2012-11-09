@@ -1,10 +1,10 @@
-<% author_products = Spree::Product.limit(3).search(:author_cont => author.name.strip).result %>
+<% author_products = Spree::Product.limit(5).order('updated_at DESC').search(:author_cont => author.name.strip).result %>
 <% if author_products.present? %>
-<h2>Products</h2>
-<div class="row">
+<%= content_tag(:h2, t(:resources_by_author, :author => author.name)) %>
+<div class="row" id="author-products">
 <% author_products.each do |product| %>
 	<div class="column">
-		<%= link_to mini_image(product) + " " + product.name, product %>
+		<%= link_to small_image(product), product, title: product.name, rel: 'tooltip' %>
 	</div>
 <% end %>
 </div>

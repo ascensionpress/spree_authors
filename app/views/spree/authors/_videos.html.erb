@@ -1,8 +1,0 @@
-<% cache ['author-videos', author] do %>
-<% if author.videos.present? %>
-<div id="product-videos">
-	<%= render 'spree/products/video_player', :video => author.videos.first, :html_options => { :width => 340 } %>
-	<%= render 'spree/products/video_thumbnails', :videos => author.videos %>
-</div>
-<% end %>
-<% end %>

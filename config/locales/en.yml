@@ -3,7 +3,8 @@
 
 en:
   view_all_author_products: View All %{author} Products
-
+  resources_by_author: Resources by %{author}
+  
   helpers:
     label:
       author:
