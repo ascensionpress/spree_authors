@@ -2,7 +2,7 @@ class Spree::Author < ActiveRecord::Base
   attr_accessible :biography, :name, :permalink, :photo, :videos_attributes
 
   has_many :videos, :order => 'position ASC', :as => :watchable
-  accepts_nested_attributes_for :videos, :allow_destroy => true
+  accepts_nested_attributes_for :videos, :allow_destroy => true, :reject_if => proc { |attributes| attributes['youtube_ref'].blank? }
 
 
   make_permalink :order => :name
