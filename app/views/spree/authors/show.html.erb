@@ -16,6 +16,7 @@
 	</div>
 </div>
 
+<% if @author.videos.present? %>
 <div class="row">
 	<%= content_tag(:h2, t(:speaker_video_samples)) %>
 </div>
@@ -26,6 +27,7 @@
 	</div>
 	<% end %>
 </div>
+<% end %>
 
 <div class="row" id="author-products">
 	<%= render 'products', :author => @author %>
