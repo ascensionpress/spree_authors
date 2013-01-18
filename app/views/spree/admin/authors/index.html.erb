@@ -13,16 +13,16 @@
 
 <table class="index" id="listing_slides" data-hook>
   <thead>
-    <tr data-hook="admin_slides_index_headers">
+    <tr data-hook="admin_author_index_headers">
       <th>Name</th>
-      <th data-hook="admin_slides_index_header_actions"></th>
+      <th data-hook="admin_author_index_header_actions"></th>
     </tr>
   </thead>
   <tbody>
     <% @authors.each do |author|%>
-      <tr id="<%= dom_id author %>" data-hook="admin_slides_index_rows">
+      <tr id="<%= dom_id author %>" data-hook="admin_author_index_rows">
         <td width="350px" ><%= link_to(author.name, author_url(author), :target => "_blank") %></td>
-        <td data-hook="admin_slides_index_row_actions">
+        <td data-hook="admin_author_index_row_actions">
           <%= link_to_edit author, :class => 'edit' %> &nbsp;
           <%= link_to_delete author %>
         </td>
