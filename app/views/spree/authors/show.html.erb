@@ -3,7 +3,7 @@
 <% cache @author do %>
 <div class="row">
 	<div class="alpha columns four author-photo">
-		<%= image_tag @author.photo.url %>
+		<%= image_tag @author.photo.url(:small) %>
 	</div>
 	<div class="omega columns twelve readable-text">
 		<div>
