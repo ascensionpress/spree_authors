@@ -2,11 +2,16 @@
 <% cache ["author-index", Spree::Author.maximum('updated_at').to_i] do %>
 <div class="row" id="author-listing">
   <div class="container"><h1>Authors</h1></div>
+  <div class="row">
   <% @authors.each do |author| %>
-    <div class="column">
-      <%= content_tag(:h3, author.name) %>
-      <%= link_to(image_tag(author.photo.url(:small)), author) %>
-    </div>  
+	<%# output in columns of four %>
+	<%== '</div><div class="row">' if cycle(false, false, false, false, true, false, false, false, true, :name => 'author_rows') == "true" %>
+	<div class="columns four <%= cycle('alpha', '', '', 'omega') %>">
+		<%= content_tag(:h3, author.name) %>
+		<%= link_to(image_tag(author.photo.url(:small)), author) %>
+	</div>
+	<%=  %>
   <% end %>
+  </div>
 </div>
 <% end %>
