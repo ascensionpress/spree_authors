@@ -1,4 +1,3 @@
-<% @body_class = 'serif-headers' %>
 <% cache ["author-index", Spree::Author.maximum('updated_at').to_i] do %>
 <div class="row" id="author-listing">
   <h1>Authors</h1>
