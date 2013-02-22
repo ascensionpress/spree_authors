@@ -1,0 +1,8 @@
+<% authors.each do |author| %>
+	<%# output in columns of four %>
+	<%== '</div><div class="row">' if cycle(false, false, false, false, true, false, false, false, true, :name => 'author_rows') == "true" %>
+	<div class="columns four <%= cycle('alpha', '', '', 'omega') %>">
+		<%= content_tag(:h3, author.name) %>
+		<%= link_to(image_tag(author.photo.url(:small)), author) %>
+	</div>
+<% end %>
