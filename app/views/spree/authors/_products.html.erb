@@ -8,5 +8,7 @@
 	</div>
 <% end %>
 </div>
-<%= content_tag(:p, link_to(t(:view_all_author_products, author: author.name), '/products?author_list_facet=' + u(author.name), class: 'btn')) %>
+<% if gem_available? 'spree_sunspot_search' %>
+<%= content_tag(:p, link_to(t(:view_all_author_products, author: author.name), products_path(:author_list_facet => author.name), class: 'btn')) %>
+<% end %>
 <% end %>
