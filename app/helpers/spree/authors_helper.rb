@@ -5,9 +5,11 @@ module Spree::AuthorsHelper
     # TODO there must be a way to replace multiple strings with a single replacement
     # TODO this is some app-specific substitutions here
     author_string
+      .strip
       .sub('and more', '')
-      .sub(/[Vv]arious [Ss]peakers/, '')
-      .sub('and', ',')
+      .sub(/^[bB]y\s/, '')                # remove the 'by' from 'by Author Name'
+      .sub(/[Vv]arious [Ss]peakers/, '')  
+      .sub(/\s(?:&|&amp;|and)\s/, ',')    # convert all list words/symbols to a 'and'
       .split(',')
       .map(&:strip)
       .reject(&:blank?)
