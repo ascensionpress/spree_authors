@@ -16,4 +16,12 @@ class Spree::Author < ActiveRecord::Base
   def to_param
     permalink.present? ? permalink : (permalink_was || name.to_s.to_url)
   end
+
+  def products
+    Spree::Product
+      .limit(5)
+      .order('updated_at DESC')
+      .search(:author_cont => self.name.strip)
+      .result
+  end
 end
