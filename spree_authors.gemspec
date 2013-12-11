@@ -16,6 +16,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'spree_core', '~> 1.1'
   s.add_dependency 'spree_videos'
+  s.add_dependency 'rdiscount', '~> 2.1.6'
 
   s.add_development_dependency 'capybara', '1.0.1'
   s.add_development_dependency 'factory_girl', '~> 2.6.4'
