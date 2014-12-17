@@ -1,4 +1,4 @@
-<% cache ["author-index", Spree::Author.maximum('updated_at').to_i] do %>
+<% cache ["author-index", Spree::Author.maximum('updated_at').to_i, Spree::Author.count] do %>
 <div class="row" id="author-listing">
   <h1>Authors</h1>
   <%= render :partial => 'author_list', :locals => { :authors => @authors } %>
